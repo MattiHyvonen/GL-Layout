@@ -157,7 +157,6 @@ TEST_F(Layout_testit, haeDatanKoko_KunMaariteltyMaaritteleJasen_funktiolla) {
   ASSERT_EQ(M.datanKoko(), 8);
 }
 
-
 TEST_F(Layout_testit, muodostaData) {
   Layout L;
   L.maaritteleJasen(float {0.01f} );
@@ -169,4 +168,21 @@ TEST_F(Layout_testit, muodostaData) {
   ASSERT_EQ(haeFloatMuistipaikasta(D, 16), 0.11f);
   ASSERT_EQ(haeFloatMuistipaikasta(D, 32), 1.21f);
   ASSERT_EQ(haeFloatMuistipaikasta(D, 48), 2.31f);
+}
+
+TEST_F(Layout_testit, asetaFloat) {
+  Layout L;
+  L.maaritteleJasen(float{});
+  L.maaritteleJasen(float{});
+  L.asetaFloat(1, 0.1f);
+  ASSERT_EQ(L.haeFloatit()[1], 0.1f);
+}
+
+TEST_F(Layout_testit, asetaFloatArray) {
+  Layout L;
+  L.maaritteleJasen(float{});
+  L.maaritteleJasen(std::vector<float>(4));
+  L.asetaFloatArray(0, std::vector<float> {0.0f, 1.0f, 2.0f, 3.0f} );
+  std::vector<float> oikeaVastaus {0.0f, 1.0f, 2.0f, 3.0f};
+  ASSERT_EQ(L.haeFloatArrayt()[0], oikeaVastaus);
 }

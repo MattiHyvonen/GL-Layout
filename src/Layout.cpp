@@ -145,3 +145,15 @@ std::vector<char> Layout::muodostaData() {
   }
   return data;
 }
+
+void Layout::asetaFloat(uint i, float arvo) {
+  assert(i < muuttujat_float.size() );
+  muuttujat_float[i] = arvo;
+}
+
+//pitää olla saman kokoinen! TODO: voiko optimoida?
+void Layout::asetaFloatArray(uint i, std::vector<float> arvo) {
+  assert(i < muuttujat_array_float.size() );
+  assert(arvo.size() == muuttujat_array_float[i].size() );
+  muuttujat_array_float[i] = arvo;
+}

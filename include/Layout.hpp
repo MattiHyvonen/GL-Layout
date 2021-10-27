@@ -25,4 +25,6 @@ public:
   const std::vector<std::vector<float> >& haeFloatArrayt() const;
   uint datanKoko() const;
   std::vector<char> muodostaData();
+  void asetaFloat(uint indeksi, float arvo);
+  void asetaFloatArray(uint indeksi, std::vector<float> arvo);
 };
